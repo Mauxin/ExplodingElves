@@ -18,6 +18,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439229116616096642, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: _characterPrefab
+      value: 
+      objectReference: {fileID: 455758216198277229, guid: d45bcde22039249d0993fe12e6e52c22,
+        type: 3}
     - target: {fileID: 8913906768740561743, guid: 801d48572c7124682844d1ff4e566c87,
         type: 3}
       propertyPath: m_LocalPosition.x

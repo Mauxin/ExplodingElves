@@ -18,6 +18,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5463805317770556072, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463805317770556072, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463805317770556072, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463805317770556072, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439229116616096642, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: _characterPrefab
+      value: 
+      objectReference: {fileID: 26366794146411786, guid: 578c94f4d8e2b44d1ac0663c3af2b067,
+        type: 3}
     - target: {fileID: 8913906768740561743, guid: 801d48572c7124682844d1ff4e566c87,
         type: 3}
       propertyPath: m_LocalPosition.x

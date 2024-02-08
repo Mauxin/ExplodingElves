@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6712273481947346039}
   - component: {fileID: 189458620543669525}
+  - component: {fileID: 4447390884161113675}
   m_Layer: 0
   m_Name: Battlefield
   m_TagString: Untagged
@@ -51,6 +52,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minScale: {x: 0.1, y: 0.1, z: 0.1}
   _maxScale: {x: 0.15, y: 0.15, z: 0.15}
+--- !u!114 &4447390884161113675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7807022293841103961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f226cdca394d94905c3e57cd41d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8836336847037966308
 GameObject:
   m_ObjectHideFlags: 0
