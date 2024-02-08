@@ -8,7 +8,7 @@ namespace SpawnSystem
         [SerializeField] private TextMeshPro _timerText;
 
         private const string TIMER_TEMPLATE = "{0}s";
-        private const string TIMER_FORMAT = "F2";
+        private const string TIMER_FORMAT = "F1";
     
         public void UpdateTimer(float time)
         {
