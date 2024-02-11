@@ -1,4 +1,5 @@
 using System.Collections;
+using CharacterSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +9,7 @@ namespace SpawnSystem
     {
         [SerializeField] private TimerView _timerView;
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _characterPrefab;
+        [SerializeField] private CharacterType _characterType;
         
         private const float MAX_SPAWN_INTERVAL = 10f;
 
@@ -37,9 +38,7 @@ namespace SpawnSystem
         
         private void CreateCharacter()
         {
-            var character = Instantiate(_characterPrefab, transform.parent);
-            character.transform.position = _spawnPoint.position;
-            character.transform.rotation = _spawnPoint.rotation;
+            CharacterWarehouse.Instance.CreateCharacter(_spawnPoint, _characterType);
         }
 
         public void OnPointerClick(PointerEventData eventData)
