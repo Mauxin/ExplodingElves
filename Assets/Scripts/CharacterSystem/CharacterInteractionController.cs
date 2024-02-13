@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace CharacterSystem
@@ -15,6 +14,11 @@ namespace CharacterSystem
         public int Id { get; set; }
         
         private float lastSpawnTime;
+
+        private void Start()
+        {
+            InvokeRepeating(nameof(CheckValidPosition), MIN_SPAWN_INTERVAL, MIN_SPAWN_INTERVAL);
+        }
 
         private void OnCollisionEnter(Collision other)
         {
@@ -34,11 +38,19 @@ namespace CharacterSystem
                 _characterAnimator.AttackAndDie(OnDeath);
             }
         }
+        
+        private void CheckValidPosition()
+        {
+            if (transform.position.y >= -5f) return;
+                
+            CharacterWarehouse.Instance.RemoveCharacter(_characterType);
+            Destroy(gameObject);
+        }
 
         private void SpawnFriend()
         {
             if (!(Time.time - lastSpawnTime >= MIN_SPAWN_INTERVAL)) return;
-            if (CharacterWarehouse.Instance.GetPopulation(_characterType) >= 256) return;
+            if (CharacterWarehouse.Instance.GetPopulation(_characterType) >= 200) return;
 
             lastSpawnTime = Time.time;
             CharacterWarehouse.Instance.CreateCharacter(transform.position + Vector3.up, transform.rotation, _characterType);

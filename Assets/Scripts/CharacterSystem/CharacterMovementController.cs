@@ -54,7 +54,7 @@ namespace CharacterSystem
             var newPosition = currentPosition + movementDirection * (MOVE_SPEED * Time.deltaTime);
             _rigidbody.MovePosition(newPosition);
         }
-        
+
         public void FaceEnemy(Transform enemy)
         {
             var lookRotation = Quaternion.LookRotation(enemy.position - transform.position, Vector3.up);

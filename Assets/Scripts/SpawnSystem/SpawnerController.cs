@@ -13,7 +13,7 @@ namespace SpawnSystem
         [SerializeField] private Button _plusButton;
         [SerializeField] private Button _minusButton;
         
-        private const float SPAWN_INTERVAL_DELTA = 0.5f;
+        private const float SPAWN_INTERVAL_DELTA = 2f;
 
         private float _spawnInterval;
 
@@ -55,6 +55,8 @@ namespace SpawnSystem
         private void DecreaseSpawnTimer()
         {
             _spawnInterval -= + SPAWN_INTERVAL_DELTA;
+            if (_spawnInterval < 0) _spawnInterval = 0;
+
             UpdateView();
         }
         
