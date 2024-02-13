@@ -1,5 +1,4 @@
-
-using System.Dynamic;
+using System;
 using UnityEngine;
 
 namespace CharacterSystem
@@ -9,33 +8,46 @@ namespace CharacterSystem
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private CharacterAnimator _characterAnimator;
         [SerializeField] private CharacterMovementController _movementController;
-        
+
         private const string CHARACTER_TAG = "Character";
+        private const float MIN_SPAWN_INTERVAL = 2f;
         
         public int Id { get; set; }
+        
+        private float lastSpawnTime;
 
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag(CHARACTER_TAG)) return;
             
             var otherCharacter = other.gameObject.GetComponent<CharacterInteractionController>();
-            
+
             if (otherCharacter._characterType == _characterType)
             {
                 _characterAnimator.Jump();
                 
-                if (Id < otherCharacter.Id) Invoke(nameof(SpawnFriend), 1f);
+                if (Id < otherCharacter.Id) SpawnFriend();
             }
             else
             {
-                _movementController.Stop();
-                _characterAnimator.AttackAndDie();
+                _movementController.FaceEnemy(otherCharacter.transform);
+                _characterAnimator.AttackAndDie(OnDeath);
             }
         }
-        
+
         private void SpawnFriend()
         {
-            CharacterWarehouse.Instance.CreateCharacter(transform, _characterType);
+            if (!(Time.time - lastSpawnTime >= MIN_SPAWN_INTERVAL)) return;
+            if (CharacterWarehouse.Instance.GetPopulation(_characterType) >= 256) return;
+
+            lastSpawnTime = Time.time;
+            CharacterWarehouse.Instance.CreateCharacter(transform.position + Vector3.up, transform.rotation, _characterType);
+        }
+        
+        private void OnDeath()
+        {
+            CharacterWarehouse.Instance.RemoveCharacter(_characterType);
+            Destroy(gameObject, .5f);
         }
     }
     

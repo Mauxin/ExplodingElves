@@ -1,23 +1,28 @@
 using System.Collections;
 using CharacterSystem;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace SpawnSystem
 {
-    public class SpawnerController : MonoBehaviour, IPointerClickHandler
+    public class SpawnerController : MonoBehaviour
     {
         [SerializeField] private TimerView _timerView;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private CharacterType _characterType;
+        [SerializeField] private Button _plusButton;
+        [SerializeField] private Button _minusButton;
         
-        private const float MAX_SPAWN_INTERVAL = 10f;
+        private const float SPAWN_INTERVAL_DELTA = 0.5f;
 
         private float _spawnInterval;
 
         private void Awake()
         {
             _spawnInterval = 0f;
+            _plusButton.onClick.AddListener(IncreaseSpawnTimer);
+            _minusButton.onClick.AddListener(DecreaseSpawnTimer);
+            
             UpdateView();
         }
 
@@ -41,14 +46,15 @@ namespace SpawnSystem
             CharacterWarehouse.Instance.CreateCharacter(_spawnPoint, _characterType);
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            IncreaseSpawnTimer();
-        }
-
         private void IncreaseSpawnTimer()
         {
-            _spawnInterval = _spawnInterval < MAX_SPAWN_INTERVAL ? _spawnInterval + 0.5f : 0f;
+            _spawnInterval += SPAWN_INTERVAL_DELTA;
+            UpdateView();
+        }
+        
+        private void DecreaseSpawnTimer()
+        {
+            _spawnInterval -= + SPAWN_INTERVAL_DELTA;
             UpdateView();
         }
         

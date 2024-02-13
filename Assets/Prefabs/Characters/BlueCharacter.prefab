@@ -150,6 +150,7 @@ MonoBehaviour:
   _characterType: 0
   _characterAnimator: {fileID: 4491729040774591153}
   _movementController: {fileID: 5873059670194283045}
+  _triggerCollider: {fileID: 0}
 --- !u!1001 &4902743726355434500
 PrefabInstance:
   m_ObjectHideFlags: 0

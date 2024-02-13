@@ -55,8 +55,11 @@ namespace CharacterSystem
             _rigidbody.MovePosition(newPosition);
         }
         
-        public void Stop()
+        public void FaceEnemy(Transform enemy)
         {
+            var lookRotation = Quaternion.LookRotation(enemy.position - transform.position, Vector3.up);
+            transform.DORotateQuaternion(lookRotation, ROTATION_DURATION);
+            
             isMoving = false;
         }
     }

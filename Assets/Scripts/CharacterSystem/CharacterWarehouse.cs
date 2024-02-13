@@ -18,6 +18,13 @@ namespace CharacterSystem
             {CharacterType.White, 0}
         };
         
+        private Dictionary<CharacterType, int> spawnCount = new (){
+            {CharacterType.Blue, 0},
+            {CharacterType.Black, 0},
+            {CharacterType.Red, 0},
+            {CharacterType.White, 0}
+        };
+        
         private void Awake() 
         {
             if (Instance != null && Instance != this) 
@@ -38,24 +45,35 @@ namespace CharacterSystem
         
         public void CreateCharacter(Transform spawnPoint, CharacterType characterType)
         {
+            CreateCharacter(spawnPoint.position, spawnPoint.rotation, characterType);
+        }
+        
+        public void CreateCharacter(Vector3 spawnPoint, Quaternion spawnRotation, CharacterType characterType)
+        {
             if (!_characterPrefabs.TryGetModel(characterType, out var modelInfo)) return;
             
             var character = Instantiate(modelInfo.Value, transform);
-            character.transform.position = spawnPoint.position;
-            character.transform.rotation = spawnPoint.rotation;
+            character.transform.position = spawnPoint;
+            character.transform.rotation = spawnRotation;
             
 
             if (character.TryGetComponent<CharacterInteractionController>(out var interactionController))
             {
-                interactionController.Id = population[characterType];
+                interactionController.Id = spawnCount[characterType];
             }
             
+            spawnCount[characterType]++;
             population[characterType]++;
         }
-        
+
         public int GetPopulation(CharacterType type)
         {
             return population[type];
+        }
+        
+        public void RemoveCharacter(CharacterType type)
+        {
+            population[type]--;
         }
     }
     

@@ -18,6 +18,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251983949981536767, guid: 801d48572c7124682844d1ff4e566c87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7323591580968844221, guid: 801d48572c7124682844d1ff4e566c87,
         type: 3}
       propertyPath: m_LocalPosition.z

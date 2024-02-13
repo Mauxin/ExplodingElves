@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CharacterSystem
@@ -12,13 +13,16 @@ namespace CharacterSystem
         private const string DEAD_PARAM = "Dead";
         private const string JUMP_END_PARAM = "JumpEnd";
         
-        void Start()
+        private Action _onDeath;
+
+        private void Start()
         {
             _animator.SetBool(WALKING_PARAM, true);
         }
         
-        public void AttackAndDie()
+        public void AttackAndDie(Action onDeath)
         {
+            _onDeath = onDeath;
             _animator.SetBool(WALKING_PARAM, false);
             _animator.SetTrigger(ENEMY_PARAM);
         }
@@ -31,7 +35,8 @@ namespace CharacterSystem
         private void PunchEnd()
         {
             _animator.SetTrigger(DEAD_PARAM);
-            Destroy(gameObject, 1f);
+            _onDeath?.Invoke();
+            _onDeath = null;
         }
         
         private void JumpEnd()
