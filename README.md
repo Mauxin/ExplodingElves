@@ -104,15 +104,21 @@ Dentro da pasta *Scripts*, também temos quatro namespaces:
 **EN-US 🇺🇸**
 
 => Spawners at 0s interval are turned off 
+
 => Initially players should only click on the spawner (using IPointerClickHandler) to increase the spawn time and after reaching the 10s interval the next click will be reset to 0, but this was changed to the less and more button allowing larger intervals 
+
 => the 1s step between each click on the + or - of the spawn is Arbitrary and defined in a constant. 
+
 => the 20 FPS limit to prevent character generation was made to allow multiple devices to have the largest possible number of characters on the board without losing the quality of the animations, the goal was to use 30 instead of 20, but 20 works very well since the characters are small on the screen and on mobile devices by default 30 FPS is used as the maximum refresh rate and thus no elf would be generated.
 
 **PT-BR 🇧🇷**
 
 => Spawners em 0s de intervalo estão desligados
+
 => Inicialmente os jogadores deveriam apenas clicar no spawner (usando IPointerClickHandler) para aumentar o tempo de spawn e após atingir o intervalo de 10s o próximo clique será redefinido para 0, mas isso foi alterado para o botão menos e mais permitindo intervalos maiores
+
 => o passo de 1s entre cada clique no  + ou - do spawn é Arbitrário e definido em uma constante.
+
 => o limite de 20 FPS para impedir a geração de personagens foi feito para permitir que vários dispositivos tivessem a maior quantidade possível de personagens no tabuleiro sem perder a qualidade das animações, o objetivo era usar 30 em vez de 20, mas 20 funciona muito bem já que os personagens são pequenos na tela e nos dispositivos móveis por padrão se usa 30 FPS como taxa de atualização máxima e dessa forma nenhum elfo seria gerado.
 
 ## Benchmarks
