@@ -11,7 +11,6 @@ namespace CharacterSystem
         private const string ENEMY_PARAM = "EnemyFound";
         private const string FRIEND_PARAM = "FriendFound";
         private const string DEAD_PARAM = "Dead";
-        private const string JUMP_END_PARAM = "JumpEnd";
         
         private Action _onDeath;
         private Action _onFriend;
