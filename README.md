@@ -151,12 +151,25 @@ As versões Android e iOS foram construídas e testadas em vários dispositivos.
 ## Known Issues
 **EN-US 🇺🇸**
 
- - Some Devices not Showing UI TMPro (Samsung A7 & Motorola G73)
+ - Some Devices not Showing UI TMPro (Samsung A7 (2017) & Motorola G73)
 
 **PT-BR 🇧🇷**
 
-- Alguns dispositivos não estão mostrando UI TMPro (Samsung A7 & Motorola G73)
+- Alguns dispositivos não estão mostrando UI TMPro (Samsung A7 (2017) & Motorola G73)
 
 ## Possible Improves
+ Due to time constraints and other complications this week, these features were unable to be implemented
+
  ### Arts & Animation 
+  - Add Sound Effects
+  - Add Particles for the Explosion
+  - Add Particles for friend Spawn
+  - Scenary decoration
+    
  ### Code
+  - Is possible to add some more complex control algorithms keeping the FPS based lock, allowing the system to receive feedbacks and explode some elves aiming the target performance
+  - Add an event system, for listening to collisions and avoiding some objects dependency injection like in CharacterInteractionController
+
+ ### Game Design
+  - I imagine some possibilities for winning and lose conditions like, Max Elves alive or First Nation to dominate the battle field wins, or time record based playthroughs
+  - Additional Mechanics like Bombs trow by the player to clear an Area inside the battlefield.
