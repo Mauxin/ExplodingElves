@@ -13,7 +13,7 @@ namespace SpawnSystem
         [SerializeField] private Button _plusButton;
         [SerializeField] private Button _minusButton;
         
-        private const float SPAWN_INTERVAL_DELTA = 2f;
+        private const float SPAWN_INTERVAL_DELTA = 1f;
 
         private float _spawnInterval;
 

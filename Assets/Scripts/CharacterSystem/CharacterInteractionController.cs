@@ -1,3 +1,4 @@
+using Extensions;
 using UnityEngine;
 
 namespace CharacterSystem
@@ -30,7 +31,7 @@ namespace CharacterSystem
             {
                 _characterAnimator.Jump();
                 
-                if (Id < otherCharacter.Id) SpawnFriend();
+                if (Id < otherCharacter.Id) {SpawnFriend();}
             }
             else
             {
@@ -50,7 +51,6 @@ namespace CharacterSystem
         private void SpawnFriend()
         {
             if (!(Time.time - lastSpawnTime >= MIN_SPAWN_INTERVAL)) return;
-            if (CharacterWarehouse.Instance.GetPopulation(_characterType) >= 200) return;
 
             lastSpawnTime = Time.time;
             CharacterWarehouse.Instance.CreateCharacter(transform.position + Vector3.up, transform.rotation, _characterType);
@@ -61,13 +61,5 @@ namespace CharacterSystem
             CharacterWarehouse.Instance.RemoveCharacter(_characterType);
             Destroy(gameObject, .5f);
         }
-    }
-    
-    public enum CharacterType
-    {
-        Blue,
-        Black,
-        Red,
-        White
     }
 }

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CharacterSystem
 {
@@ -23,12 +24,15 @@ namespace CharacterSystem
         
         private void Update()
         {
-            if (!isMoving) return;
+            ChangeDirection();
+        }
 
-            ChangeDirection();   
+        private void FixedUpdate()
+        {
+            if (!isMoving) return;
             MoveCharacter();
         }
-        
+
         private void ChangeDirection()
         {
             if (Time.time - lastDirectionChangeTime <= changeDirectionInterval) return;

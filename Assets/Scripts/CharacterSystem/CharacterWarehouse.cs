@@ -11,14 +11,14 @@ namespace CharacterSystem
         
         public static CharacterWarehouse Instance { get; private set; }
 
-        private Dictionary<CharacterType, int> population = new (){
+        private readonly Dictionary<CharacterType, int> population = new (){
             {CharacterType.Blue, 0},
             {CharacterType.Black, 0},
             {CharacterType.Red, 0},
             {CharacterType.White, 0}
         };
         
-        private Dictionary<CharacterType, int> spawnCount = new (){
+        private readonly Dictionary<CharacterType, int> spawnCount = new (){
             {CharacterType.Blue, 0},
             {CharacterType.Black, 0},
             {CharacterType.Red, 0},
@@ -38,9 +38,21 @@ namespace CharacterSystem
             } 
         }
 
+        private int fps;
+        
         private void Setup()
         {
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            getFPS();
+        }
+
+        private void getFPS()
+        {
+            fps = (int)(1f / Time.unscaledDeltaTime);
         }
         
         public void CreateCharacter(Transform spawnPoint, CharacterType characterType)
@@ -50,6 +62,7 @@ namespace CharacterSystem
         
         public void CreateCharacter(Vector3 spawnPoint, Quaternion spawnRotation, CharacterType characterType)
         {
+            if (fps <= 30) return;
             if (!_characterPrefabs.TryGetModel(characterType, out var modelInfo)) return;
             
             var character = Instantiate(modelInfo.Value, transform);
@@ -75,6 +88,14 @@ namespace CharacterSystem
         {
             population[type]--;
         }
+    }
+    
+    public enum CharacterType
+    {
+        Blue,
+        Black,
+        Red,
+        White
     }
     
     [Serializable]
