@@ -21,14 +21,14 @@ namespace CharacterSystem
             _animator.SetBool(WALKING_PARAM, true);
         }
         
-        public void AttackAndDie(Action onDeath)
+        public void AttackAndDie(Action onDeath = null)
         {
             _onDeath = onDeath;
             _animator.SetBool(WALKING_PARAM, false);
             _animator.SetTrigger(ENEMY_PARAM);
         }
         
-        public void Jump(Action onFriend)
+        public void Jump(Action onFriend = null)
         {
             _onFriend = onFriend;
             _animator.SetBool(WALKING_PARAM, false);

@@ -1,4 +1,3 @@
-using Extensions;
 using UnityEngine;
 
 namespace CharacterSystem
@@ -11,6 +10,7 @@ namespace CharacterSystem
 
         private const string CHARACTER_TAG = "Character";
         private const float MIN_SPAWN_INTERVAL = 2f;
+        private const float POSITION_CHECK_INTERVAL = 2f;
         
         public int Id { get; set; }
         
@@ -18,7 +18,8 @@ namespace CharacterSystem
 
         private void Start()
         {
-            InvokeRepeating(nameof(CheckValidPosition), MIN_SPAWN_INTERVAL, MIN_SPAWN_INTERVAL);
+            lastSpawnTime = Time.time;
+            InvokeRepeating(nameof(CheckValidPosition), POSITION_CHECK_INTERVAL, POSITION_CHECK_INTERVAL);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -29,9 +30,8 @@ namespace CharacterSystem
 
             if (otherCharacter._characterType == _characterType)
             {
-                _characterAnimator.Jump(null);
-                
-                if (Id < otherCharacter.Id) {SpawnFriend();}
+                _characterAnimator.Jump();
+                SpawnFriend(otherCharacter.Id);
             }
             else
             {
@@ -48,11 +48,14 @@ namespace CharacterSystem
             Destroy(gameObject);
         }
 
-        private void SpawnFriend()
+        private void SpawnFriend(int otherId)
         {
-            if (!(Time.time - lastSpawnTime >= MIN_SPAWN_INTERVAL)) return;
-
+            if (Time.time - lastSpawnTime < MIN_SPAWN_INTERVAL) return;
+            
             lastSpawnTime = Time.time;
+            
+            if (Id >= otherId) return;
+            
             CharacterWarehouse.Instance.CreateCharacter(transform.position + Vector3.up, transform.rotation, _characterType);
         }
         

@@ -8,11 +8,13 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI _text;
     
-        private const string BASE_TEXT = "Population: \n Blue: {0} \n Black: {1} \n Red: {2} \n White: {3}";
+        private const string BASE_TEXT = "Population: {0} \n Blue: {1} \n Black: {2} \n Red: {3} \n White: {4}";
         
         private void Update()
         {
-            _text.text = string.Format(BASE_TEXT, CharacterWarehouse.Instance.GetPopulation(CharacterType.Blue),
+            _text.text = string.Format(BASE_TEXT,
+                CharacterWarehouse.Instance.TotalPopulation,
+                CharacterWarehouse.Instance.GetPopulation(CharacterType.Blue),
                 CharacterWarehouse.Instance.GetPopulation(CharacterType.Black),
                 CharacterWarehouse.Instance.GetPopulation(CharacterType.Red),
                 CharacterWarehouse.Instance.GetPopulation(CharacterType.White));

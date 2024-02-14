@@ -10,6 +10,8 @@ namespace CharacterSystem
         [SerializeField] private ModelsDataManager _characterPrefabs;
         
         public static CharacterWarehouse Instance { get; private set; }
+        
+        public int TotalPopulation => population.Sum(pair => pair.Value);
 
         private readonly Dictionary<CharacterType, int> population = new (){
             {CharacterType.Blue, 0},
@@ -17,7 +19,7 @@ namespace CharacterSystem
             {CharacterType.Red, 0},
             {CharacterType.White, 0}
         };
-        
+
         private readonly Dictionary<CharacterType, int> spawnCount = new (){
             {CharacterType.Blue, 0},
             {CharacterType.Black, 0},
