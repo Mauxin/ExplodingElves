@@ -125,12 +125,22 @@ Android and iOS versions are builded and tested on multiples devices. Here the f
 As versões Android e iOS foram construídas e testadas em vários dispositivos. Aqui o foco é no uso de memória, mas também no máximo de elfos vivos alcançados por cada dispositivo, já que o limite de spawn é controlado pelo FPS.
 
  - SAMSUNG GALAXY A54 (2023)
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/SamsungA54.png)
+
  - SAMSUNG GALAXY S23
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/SamsungS23.jpeg)
+
  - SAMSUNG GALAXY S22
- - SAMSUNG A7 (2017)
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/SamsungS22.jpeg)
+   
  - MOTOROLA G50 5G
- - MOTOROLA G73
- - iPhone 12
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/MotoG50.png)
+
+ - IPHONE 12
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/iPhone12.jpeg)
+
+ - GOOGLE PIXEL 7
+ ![alt text](https://github.com/Mauxin/ExplodingElves/blob/master/BenchmarkImages/GooglePixel7.png)
 
 ## Known Issues
 **EN-US 🇺🇸**
