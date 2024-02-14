@@ -14,6 +14,7 @@ namespace CharacterSystem
         private const string JUMP_END_PARAM = "JumpEnd";
         
         private Action _onDeath;
+        private Action _onFriend;
 
         private void Start()
         {
@@ -27,8 +28,10 @@ namespace CharacterSystem
             _animator.SetTrigger(ENEMY_PARAM);
         }
         
-        public void Jump()
+        public void Jump(Action onFriend)
         {
+            _onFriend = onFriend;
+            _animator.SetBool(WALKING_PARAM, false);
             _animator.SetTrigger(FRIEND_PARAM);
         }
         
@@ -42,7 +45,9 @@ namespace CharacterSystem
         private void JumpEnd()
         {
             _animator.ResetTrigger(FRIEND_PARAM);
-            _animator.SetTrigger(JUMP_END_PARAM);
+            _animator.SetBool(WALKING_PARAM, true);
+            _onFriend?.Invoke();
+            _onFriend = null;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace CharacterSystem
 
             if (otherCharacter._characterType == _characterType)
             {
-                _characterAnimator.Jump();
+                _characterAnimator.Jump(null);
                 
                 if (Id < otherCharacter.Id) {SpawnFriend();}
             }

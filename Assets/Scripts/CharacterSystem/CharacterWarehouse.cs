@@ -62,7 +62,7 @@ namespace CharacterSystem
         
         public void CreateCharacter(Vector3 spawnPoint, Quaternion spawnRotation, CharacterType characterType)
         {
-            if (fps <= 30) return;
+            if (fps <= 20) return;
             if (!_characterPrefabs.TryGetModel(characterType, out var modelInfo)) return;
             
             var character = Instantiate(modelInfo.Value, transform);
